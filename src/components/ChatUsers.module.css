@@ -1,0 +1,13 @@
+.usersChat{
+  width: 100%;
+  background:yellow;
+  
+}
+.ul{
+  display: flex;
+  flex-direction: column;
+  gap:20px
+}
+.li{
+  background: white;
+}
