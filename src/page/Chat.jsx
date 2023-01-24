@@ -22,7 +22,7 @@ const Chat = () => {
   
 
 
-  const socket =  io('https://red-social-back.onrender.com/')
+  const socket =  io('https://red-social-back.onrender.com')
 
   
 

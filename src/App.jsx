@@ -14,7 +14,7 @@ const App = () => {
   return (
     <div>
       <QueryClientProvider client={queryClient}>
-      {/* <ReactQueryDevtools/> */}
+      <ReactQueryDevtools/>
 
         <Router>
 
