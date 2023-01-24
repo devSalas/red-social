@@ -1,7 +1,6 @@
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import React from 'react'
 import Chat from './page/Chat'
 import Home from './page/home/index';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
@@ -20,7 +19,7 @@ const App = () => {
 
           <Routes>
             <Route path='/home' element={<Home />} />
-            <Route path='/chat' element={<Chat />} />
+            <Route path='/' element={<Chat />} />
           </Routes>
 
         </Router>
