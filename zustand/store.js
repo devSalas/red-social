@@ -1,12 +1,10 @@
 import { create } from 'zustand';
 
 export const useStoreChat = create((set) => ({
-  limpiarChat: false,
   setLimpiarChat: false,
   messages: [],
-
-  setMessages : (message ) => set( (state) => ({  ...state,messages:[...message]}) )
-
+  setMessages : (message ) => set( (state) => ({  ...state,messages:[...message]}) ),
+  limpiarChat:  () => set( (state) => ({  messages:[]}) )
 }));
 
 export const useStoreHost = create((set) => ({
@@ -18,3 +16,13 @@ export const useStoreDataChat = create( (set)=>({
   details:{},
   setDetails: (details)=>set( (state) =>({...state,details}))
   }) )
+
+  export const useStoreFriend =  create((set) => ({
+    friend: {},
+    setFriend: (Friend) => set((state) => ({...state, friend: Friend})),
+  }));
+
+  export const useStoreShowChatMobile =  create((set) => ({
+    showChatMobile:false,
+    setShowChatMobile: (value) => set((state) => ({...state,showChatMobile:value})),
+  }));

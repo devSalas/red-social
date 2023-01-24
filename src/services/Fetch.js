@@ -20,8 +20,8 @@ export const getOneAmigo= async(friendId)=>{
 
 }
 
-export const  getUser = async(email)=>{
+export const  getUser = async(id)=>{
 
-  const user = await instance.post(`/user`,{email})
+  const user = await instance.post(`/user`,{id})
   return user.data[0]
 }
