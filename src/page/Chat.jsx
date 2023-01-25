@@ -20,7 +20,7 @@ const Chat = () => {
   
 
 
-  const socket =  io('http://localhost:4000')
+  const socket =  io('https://red-social-back.onrender.com')
 
   
 
