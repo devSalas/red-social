@@ -9,10 +9,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@apollo/client": "^3.7.4",
+    "graphql": "^16.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.7.0",
-    "socket.io-client": "^4.5.4"
+    "socket.io-client": "^4.5.4",
+    "zustand": "^4.3.2",
+    "@auth0/auth0-react": "^2.0.0",
+    "@tanstack/react-query": "^4.22.0",
+    "@tanstack/react-query-devtools": "^4.22.4",
+    "axios": "^1.2.3"
   },
   "devDependencies": {
     "@types/react": "^18.0.24",
