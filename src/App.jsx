@@ -5,6 +5,7 @@ import Chat from './page/Chat'
 import Home from './page/home/index';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
+
 const queryClient = new QueryClient()
 
 const App = () => {
@@ -14,7 +15,6 @@ const App = () => {
     <div>
       <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools/>
-
         <Router>
 
           <Routes>

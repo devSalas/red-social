@@ -2,17 +2,15 @@ import io from 'socket.io-client'
 import ChatUsers from '../components/ChatUsers'
 import EmpiezaChatear from '../components/EmpiezaChatear'
 import MessagesChat from '../components/MessagesChat'
-import AuthenticateUser from '../components/AuthenticateUser'
-import { useAuth0 } from '@auth0/auth0-react'
 import { useQuery } from '@tanstack/react-query'
 import { getUser } from '../services/Fetch'
-import { useStoreChat, useStoreFriend, useStoreHost } from '../../zustand/store'
+import { useStoreChat, useStoreHost } from '../../zustand/store'
 
 
 
 const Chat = () => {
   const {host}=useStoreHost()
-  const { messages,limpiarChat} =useStoreChat()
+  const { messages,limpiarChat,showChat} =useStoreChat()
   const {_id} = host
   const {data:userData,isError,isLoading}=useQuery(["user",_id],()=>getUser(_id))
   
@@ -22,16 +20,15 @@ const Chat = () => {
   
 
 
-  const socket =  io('https://red-social-back.onrender.com')
+  const socket =  io('http://localhost:4000')
 
   
 
   return (
     <div className=" h-screen w-screen sm:grid sm:grid-cols-[30%,70%] max-w-6xl m-auto sm:p-2 ">
-{/*       <AuthenticateUser/> */}
       <ChatUsers  userData={userData}/>
-     {(Object.keys(messages).length === 0) ?<EmpiezaChatear userData={userData}/>
-      :<MessagesChat socket={socket} />}
+     {(showChat)?<MessagesChat socket={socket} />
+      :<EmpiezaChatear userData={userData}/>}
     </div>
   )
 }

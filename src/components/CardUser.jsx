@@ -9,7 +9,7 @@ import {  getOneAmigo,getChat } from "../services/Fetch"
 
 const CardUser = ({chat,host, showComponentRef}) => {
   const {setDetails} =useStoreDataChat()
-  const { setMessages,messages} =  useStoreChat()
+  const { setMessages,messages,setShowChat,showChat} =  useStoreChat()
   const{setHost,host:hostStore}=useStoreHost()
   const {setFriend} = useStoreFriend()
   const {showChatMobile,setShowChatMobile}=useStoreShowChatMobile()
@@ -18,12 +18,9 @@ const {data:amigo,isLoading} = useQuery(["user",friendId],()=>getOneAmigo(friend
 
 const {data:message,isLoading:isLoadingChat,refetch,isError,isFetched,fetchStatus,remove} = useQuery(["chat",chatId],()=>getChat(chatId),{enabled:false, cacheTime:0,staleTime:0}) 
 
-
-console.log("cardUser")
 useEffect(()=>{
   console.log(isLoadingChat)
   if(isLoadingChat==false){
-    console.log("entro a  data 24")
     setDetails(chat)
     setMessages(message.data.messages)
     remove()
@@ -42,8 +39,7 @@ useEffect(()=>{
     refetch()
     setFriend(amigo)
     setShowChatMobile(true)
-/*      showComponentRef.current.classList.add("hidden")
-     console.log( showComponentRef) */
+    setShowChat(true)
   }
 
   return (

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: 'https://red-social-back.onrender.com',
+  baseURL: 'http://localhost:4000',
 
 });
 
@@ -9,6 +9,12 @@ export const getChat= (async(chatId)=>{
   const message=  await instance.post('/chat',{chatId})
   return message
 })
+
+export const deleteMessageChat = async(id)=>{ 
+  const message=  await instance.delete(`/messageChat/${id}`)
+  return message
+}
+
 export const getAmigos= (async()=>{ 
   const amigos=  await instance.get('/amigos')
   return amigos.data
