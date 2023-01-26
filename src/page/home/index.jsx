@@ -16,10 +16,12 @@ export default function Home () {
   },[store.user])
 
   return (
-    <div>
+    <div className='md:max-w-xl m-auto'>
       
-      <CreatePost />
-      <MainPost/>
+      <div className='grid gap-4 md:py-4'>
+        <CreatePost />
+        <MainPost/>
+      </div>
 
     </div>
   )
