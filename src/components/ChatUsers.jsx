@@ -7,7 +7,7 @@ import { useRef } from "react"
 const ChatUsers = ({userData}) => {
   const {host,setHost} = useStoreHost()
   const {details}=useStoreDataChat()
-  const { messages,limpiarChat} =useStoreChat()
+  const { messages,limpiarChat,setShowChat} =useStoreChat()
   const {friend,setFriend}=useStoreFriend()
   const {showChatMobile,setShowChatMobile}=useStoreShowChatMobile()
 
@@ -25,8 +25,7 @@ const ChatUsers = ({userData}) => {
     }else{
       setHost(friend)
     }
-    limpiarChat()
-    console.log({messages})
+    setShowChat(false)
 
   }
 
@@ -44,7 +43,7 @@ const ChatUsers = ({userData}) => {
       </button>
 
      <form action="" className='w-full p-2'>
-        <input  type="text"  className="h-10 rounded-2xl  bg-slate-200  sm:bg-zinc-700 pl-2 w-full" placeholder='Chatea con Alguien...'/>
+        <input  type="text"  className="h-10 rounded-2xl bg-slate-200  sm:bg-zinc-700 pl-2 w-full" placeholder='Chatea con Alguien...'/>
       </form>
       
 

@@ -4,7 +4,10 @@ export const useStoreChat = create((set) => ({
   setLimpiarChat: false,
   messages: [],
   setMessages : (message ) => set( (state) => ({  ...state,messages:[...message]}) ),
-  limpiarChat:  () => set( (state) => ({  messages:[]}) )
+  limpiarChat:  () => set( (state) => ({  messages:[]}) ),
+  showChat:false,
+  setShowChat :(value ) => set( (state) => ({  ...state,showChat:value}) ),
+
 }));
 
 export const useStoreHost = create((set) => ({
