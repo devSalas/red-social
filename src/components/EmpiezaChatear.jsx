@@ -1,7 +1,3 @@
-
-import React from 'react'
-import { useStoreHost } from '../../zustand/store'
-
 const EmpiezaChatear = ({userData}) => {
 
   return (

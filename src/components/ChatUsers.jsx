@@ -1,5 +1,3 @@
-import {  useQuery } from "@tanstack/react-query"
-import {getUser } from "../services/Fetch"
 import { useStoreChat, useStoreDataChat, useStoreFriend, useStoreHost, useStoreShowChatMobile } from "../../zustand/store"
 import CardUser from "./CardUser"
 import { useRef } from "react"
