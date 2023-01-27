@@ -1,4 +1,4 @@
-import React from "react"
+/* import React from "react"
 import ContentLoader from "react-content-loader"
 
 const PostLoader = (props) => (
@@ -19,3 +19,4 @@ const PostLoader = (props) => (
 )
 
 export default PostLoader
+ */
