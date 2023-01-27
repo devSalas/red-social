@@ -1,4 +1,3 @@
-//import PostLoader from './postLoader';
 import PostList from './PostList';
 import { usePosts } from '../../custom-hook/usePosts'
 
@@ -6,7 +5,7 @@ export default function MainPost() {
 
   const {data, loading, error} = usePosts()
 
-  if (loading) return ({/* <PostLoader /> */} (<h1>cargando</h1>))
+  if (loading) return (<h1>cargando</h1>)
 
   return (
     <div>
