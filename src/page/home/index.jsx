@@ -1,5 +1,5 @@
-import CreatePost from '../../components/CreatePost'
-import MainPost from '../../components/publication/MainPost';
+import CreatePost from '../../components/post/CreatePost'
+import MainPost from '../../components/post/MainPost';
 
 import { useStore } from '../../zustand/usuario'
 import { useNavigate } from 'react-router-dom'

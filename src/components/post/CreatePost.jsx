@@ -1,35 +1,15 @@
-import { useMutation, gql } from '@apollo/client';
-import {useStore} from '../zustand/usuario'
-import {subirArchivos} from '../firebase/config'
 import {useState} from 'react';
+import {useStore} from '../../zustand/usuario'
+import {subirArchivos} from '../../firebase/config'
+import {useAddPost} from '../../custom-hook/useAddPost'
 
-
-const ADD_POST = gql`
-mutation crearPost ($userId: String, $text: String, $image: String) {
-  addPost(userId: $userId, text: $text, image: $image) {
-    user {
-      name
-    }
-    id
-    text
-    likes {
-      id
-    }
-    comments {
-      id
-    }
-    }
-  }
-`
 
 export default function CreatePost () {
 
   const [imgSrc, setImgSrc] = useState()
 
-  const [addPost, {data, loading, error}] = useMutation(ADD_POST)
+  const addPost = useAddPost()
   const store = useStore()
-
-  console.log(data);
 
   const handleChange = (e) => {
     const objectURL = URL.createObjectURL(e.target.files[0])

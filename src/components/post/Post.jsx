@@ -2,26 +2,9 @@ import { useState } from 'react'
 import CommentsList from './CommentsList'
 import {Link} from 'react-router-dom'
 import MenuPost from './MenuPost'
-import {useQuery, useMutation, gql} from '@apollo/client'
 import {useStore} from '../../zustand/usuario';
-
-const USER_LIKE = gql`
-  query userLike($postId: String, $userId: String) {
-  userLike(postId: $postId, userId: $userId)
-  }
-`
-
-const LIKE_POST = gql`
-  mutation likePost($postId: String, $userId: String){
-    likePost(postId: $postId userId: $userId) {
-      id
-      user {
-        id
-        name
-      }
-    }
-  }
-`
+import {useUserLike} from '../../custom-hook/useUserLike'
+import {useLikePost} from '../../custom-hook/useLikePost'
 
 export default function Post ({ id, user, date, text, image, likes, comments }) {
 
@@ -30,15 +13,10 @@ export default function Post ({ id, user, date, text, image, likes, comments }) 
   
   const store = useStore()
 
-  const {data: like, loading, error } = useQuery(USER_LIKE, {
-    variables:{
-      postId:id,
-      userId:store.user.id,
-    }
-  })
-  console.log(like);
+  const {data, loading, error } = useUserLike(id, store.user.id)
+  console.log(data);
 
-  const [likePost, {data}]= useMutation(LIKE_POST)
+  const likePost = useLikePost()
 
   const clickMenu = () => setMenuState(!menuState)
   const clickComment = () => setCommentState(!commentState)
@@ -82,7 +60,7 @@ export default function Post ({ id, user, date, text, image, likes, comments }) 
       </div>
       <div className={`flex gap-8 p-4 ${commentState ?"border-b":""}`}>
         <button onClick={clickLike} className='flex items-center justify-center gap-2'>
-          <svg className={`fill-neutral-400 w-5 hover:fill-neutral-500 ${like?.userLike ?"fill-red-500":""}`} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path d='M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z' /></svg>
+          <svg className={`fill-neutral-400 w-5 hover:fill-neutral-500 ${data?.userLike ?"fill-red-500":""}`} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path d='M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z' /></svg>
           <span>{likes.length}</span>
         </button>
         <button onClick={clickComment} className='flex gap-2'>
