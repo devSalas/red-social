@@ -1,14 +1,14 @@
 import {useState} from 'react';
 import {useStore} from '../../zustand/usuario'
-import {subirArchivos} from '../../firebase/config'
-import {useAddPost} from '../../custom-hook/useAddPost'
+//import {subirArchivos} from '../../firebase/config'
+//import {useAddPost} from '../../custom-hook/useAddPost'
 
 
 export default function CreatePost () {
 
   const [imgSrc, setImgSrc] = useState()
 
-  const addPost = useAddPost()
+  //const addPost = useAddPost()
   const store = useStore()
 
   const handleChange = (e) => {
@@ -19,7 +19,7 @@ export default function CreatePost () {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    const file = e.target.file.files[0]
+    /* const file = e.target.file.files[0]
 
     const urlFile = await subirArchivos(file)
 
@@ -29,7 +29,7 @@ export default function CreatePost () {
         text: e.target.text.value,
         image: urlFile
       }
-    })
+    }) */
   }
 
   return (

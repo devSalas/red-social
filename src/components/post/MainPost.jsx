@@ -1,6 +1,6 @@
 import PostLoader from './postLoader';
 import PostList from './PostList';
-import {usePosts} from '../../custom-hook/usePosts'
+import { usePosts } from '../../custom-hook/usePosts'
 
 export default function MainPost() {
 

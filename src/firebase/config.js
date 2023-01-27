@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+/* import { initializeApp } from "firebase/app";
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 import {v4 as uuid} from 'uuid'
 
@@ -23,3 +23,4 @@ export async function subirArchivos(file) {
   return url
 
 }
+ */
