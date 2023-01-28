@@ -1,14 +1,15 @@
-import {useState} from 'react';
-import {useStore} from '../../zustand/usuario'
-//import {subirArchivos} from '../../firebase/config'
-//import {useAddPost} from '../../custom-hook/useAddPost'
+import { useState } from 'react';
+import { useStore } from '../../zustand/usuario'
+//import { subirArchivos } from '../../firebase/config'
+import { useAddPost } from '../../custom-hook/useAddPost'
 
 
 export default function CreatePost () {
 
   const [imgSrc, setImgSrc] = useState()
+  const [urlFile, setUrlFile] = useState("")
 
-  //const addPost = useAddPost()
+  const addPost = useAddPost()
   const store = useStore()
 
   const handleChange = (e) => {
@@ -19,9 +20,12 @@ export default function CreatePost () {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    /* const file = e.target.file.files[0]
+    const file = e.target.file.files[0]
 
-    const urlFile = await subirArchivos(file)
+    /* if (file) {
+      const url = await subirArchivos(file)
+      setUrlFile(url)
+    } */
 
     addPost({
       variables:{
@@ -29,7 +33,7 @@ export default function CreatePost () {
         text: e.target.text.value,
         image: urlFile
       }
-    }) */
+    })
   }
 
   return (
@@ -38,9 +42,9 @@ export default function CreatePost () {
         <img className='w-10 rounded-full' src={store?.user?.image} alt="" />
         <input name="text" className='py-2 px-4 border w-full rounded-full' type='text' placeholder='Compose new post' required/>
       </div>
-      <input onChange={handleChange} accept="image/*" type="file" name="file" id="" />
+      <input onChange={handleChange} className="block text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100 file:cursor-pointer" accept="image/*" type="file" name="file" id="" />
       <img className='rounded-2xl' src={imgSrc} alt="" />
-      <button className='rounded-lg py-2 px-4  bg-sky-500 text-white hover:bg-sky-600'>publicar</button>
+      <button className='rounded-full py-2 px-8  bg-sky-500 text-white hover:bg-sky-600'>Publicar</button>
     </form>
   )
 }

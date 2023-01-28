@@ -1,5 +1,5 @@
 import {useQuery} from '@apollo/client';
-import {USER_LIKE} from '../services/posts/graphql-query';
+import {USER_LIKE} from '../services/post/graphql-query';
 
 export function useUserLike(postId, userId) {
 

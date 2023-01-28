@@ -3,7 +3,7 @@ import Post from './Post';
 
 export default function PostList({posts}) {
   return (
-    <div className='grid gap-4'>
+    <div className='flex flex-col-reverse gap-4'>
       {
         posts?.map(({id, user, date, text, image, likes, comments})=>(
           <Post

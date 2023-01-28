@@ -1,5 +1,5 @@
 import {useQuery} from '@apollo/client';
-import {POSTS} from '../services/posts/graphql-query';
+import {POSTS} from '../services/post/graphql-query';
 
 export function usePosts() {
 

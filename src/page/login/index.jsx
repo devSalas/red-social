@@ -1,20 +1,12 @@
 import React from 'react'
 import Avatar from './Avatar'
-import {useQuery, gql} from '@apollo/client';
+import {useUsers} from '../../custom-hook/useUsers'
 
-const getUsers = gql`
-  query getUser {
-    users {
-      id
-      name
-      picture
-    }
-}
-`
+
 
 export default function Login() {
 
-  const {data, loading, error} = useQuery(getUsers)
+  const {data, loading, error} = useUsers()
 
   if (loading) return (<p>loading...</p>)
 
