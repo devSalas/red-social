@@ -31,13 +31,14 @@ const ChatUsers = ({userData}) => {
 
 
   return (
-    <div ref={showComponentRef} className={`${(showChatMobile) ?'hidden' :'flex'} sm:flex flex-col sm:flex-col bg-slate-100 border-2 border-slate-200 overflow-hidden sm:bg-[#23232c]  sm:border-zinc-900 sm:text-white `}>
+    <div ref={showComponentRef} className={`${(showChatMobile) ?'hidden' :'flex'} sm:flex flex-col sm:flex-col bg-slate-100   overflow-hidden sm:bg-[#23232c]   sm:text-white sm:rounded-l-lg `}>
      
      <h2 className='pl-2 pt-2'>Usuario</h2>
+
       <div className="w-3/5 aspect-square bg-slate-300 rounded-full mx-auto my-2">
        <img className="rounded-full "  src={userData.image} alt="" />
-
       </div>
+
       <button onClick={handleClick} className="bg-slate-500 rounded-lg  self-center px-2 py-1 mb-4">
         Cambiar Usuario
       </button>

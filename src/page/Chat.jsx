@@ -20,12 +20,13 @@ const Chat = () => {
   
 
 
-  const socket =  io('https://red-social-back.onrender.com')
+ /*  const socket =  io('http://localhost:5000') */
+  const socket =  io('https://red-social-0l3n.onrender.com')
 
   
 
   return (
-    <div className=" h-screen w-screen sm:grid sm:grid-cols-[30%,70%] max-w-6xl m-auto sm:p-2 ">
+    <div className=" h-screen w-screen sm:grid sm:grid-cols-[30%,70%] max-w-6xl m-auto sm:p-2 md:rounded-md gap-1 ">
       <ChatUsers  userData={userData}/>
      {(showChat)?<MessagesChat socket={socket} />
       :<EmpiezaChatear userData={userData}/>}

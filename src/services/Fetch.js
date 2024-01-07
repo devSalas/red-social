@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: 'https://red-social-back.onrender.com',
+  /* baseURL: 'http://localhost:5000', */
+  baseURL: 'https://red-social-0l3n.onrender.com',
 
 });
 
