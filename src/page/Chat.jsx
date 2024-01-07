@@ -5,6 +5,9 @@ import MessagesChat from '../components/MessagesChat'
 import { useQuery } from '@tanstack/react-query'
 import { getUser } from '../services/Fetch'
 import { useStoreChat, useStoreHost } from '../../zustand/store'
+import Loading from '../components/Loading'
+import { Navigate } from 'react-router-dom'
+
 
 
 
@@ -14,14 +17,13 @@ const Chat = () => {
   const {_id} = host
   const {data:userData,isError,isLoading}=useQuery(["user",_id],()=>getUser(_id))
   
-  if(isError) return ( <div><img className="m-auto" src="https://cdn.dribbble.com/users/4174206/screenshots/16831422/media/94d29474875d173706b59dd856c4012d.jpg?compress=1&resize=840x630&vertical=top" alt="" /></div>  )
+  if(isError) return  <Navigate to="/error" />
 
-  if(isLoading) return( <div>cargando...</div> )
+  if(isLoading) return(  <Loading/>)
   
+console.log({port:import.meta.env.VITE_PORT})
 
-
- /*  const socket =  io('http://localhost:5000') */
-  const socket =  io('https://red-social-0l3n.onrender.com')
+  const socket =  io(import.meta.env.VITE_PORT)
 
   
 

@@ -1,9 +1,6 @@
 import axios from "axios";
-
 const instance = axios.create({
-  /* baseURL: 'http://localhost:5000', */
-  baseURL: 'https://red-social-0l3n.onrender.com',
-
+  baseURL: import.meta.env.VITE_PORT
 });
 
 export const getChat= (async(chatId)=>{ 
