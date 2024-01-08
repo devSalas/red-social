@@ -20,10 +20,9 @@ const Chat = () => {
   if(isError) return  <Navigate to="/error" />
 
   if(isLoading) return(  <Loading/>)
-  
-console.log({port:import.meta.env.VITE_PORT})
 
-  const socket =  io(import.meta.env.VITE_PORT)
+
+  const socket =  io("https://red-social-0l3n.onrender.com")
 
   
 

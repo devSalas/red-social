@@ -1,6 +1,6 @@
 import axios from "axios";
 const instance = axios.create({
-  baseURL: import.meta.env.VITE_PORT
+  baseURL: 'https://red-social-0l3n.onrender.com'
 });
 
 export const getChat= (async(chatId)=>{ 
